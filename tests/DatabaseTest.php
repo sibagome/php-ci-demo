@@ -44,6 +44,6 @@ class DatabaseTest extends TestCase
     {
         $stmt = $this->pdo->query("SELECT COUNT(*) FROM users");
         $count = $stmt->fetchColumn();
-        $this->assertGreaterThan(7, $count);
+        $this->assertGreaterThan(8, $count);
     }
 }
