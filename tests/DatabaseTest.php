@@ -23,6 +23,11 @@ class DatabaseTest extends TestCase
         }
     }
 
+    /**
+     * データベース接続が正常に機能しているかをテスト
+     *
+     * @return void
+     */
     public function testDatabaseConnection(): void
     {
         $stmt = $this->pdo->query("SELECT 1");
@@ -30,10 +35,15 @@ class DatabaseTest extends TestCase
         $this->assertEquals(1, $result);
     }
 
+    /**
+     * usersテーブルにデータが存在することをテスト
+     *
+     * @return void
+     */
     public function testUsersTable(): void
     {
         $stmt = $this->pdo->query("SELECT COUNT(*) FROM users");
         $count = $stmt->fetchColumn();
-        $this->assertGreaterThan(0, $count);
+        $this->assertGreaterThan(7, $count);
     }
 }
